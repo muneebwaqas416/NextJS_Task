@@ -5,7 +5,7 @@ import { useCreatePostMutation, useUpdatePostMutation } from '@/store/api/postsA
 import { RichTextEditor } from '@/components/editor/RichTextEditor';
 import { PostFormProps } from './types';
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, ToastPosition, toast } from 'react-toastify';
 
 export function PostForm({ post, onClose }: PostFormProps) {
   const [title, setTitle] = useState(post?.title || '');
@@ -13,7 +13,7 @@ export function PostForm({ post, onClose }: PostFormProps) {
   const [createPost] = useCreatePostMutation();
   const [updatePost] = useUpdatePostMutation();
   const toastConfig = {
-    position: "top-right",
+    position: "top-right" as ToastPosition,
     autoClose: 1000,
     hideProgressBar: false,
     closeOnClick: true,
